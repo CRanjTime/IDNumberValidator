@@ -29,7 +29,7 @@ namespace IDNumberValidator.Api
                 if (!operation.Responses.ContainsKey("500"))
                     operation.Responses["500"] = new OpenApiResponse { Description = "Internal Server Error" };
 
-                operation.Responses["200"].Description = $"Validation success.";
+                operation.Responses["200"].Description = $"Validation successful.";
                 operation.Responses["400"].Description = $"Unupported Id Type. Ongoing Development";
                 operation.Responses["500"].Description = $"Invalid Id Type. Provided a type that was not in the list.";
             }
