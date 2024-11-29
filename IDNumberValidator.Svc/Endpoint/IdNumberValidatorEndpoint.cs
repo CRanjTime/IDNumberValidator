@@ -19,8 +19,8 @@ namespace IDNumberValidator.Svc.Endpoint
                 {
                     try
                     {
-                        bool result = await service.ValidateIdNumber(request, ctx.RequestAborted);
-                        return Results.Ok(new { valid = result });
+                        IdNumberValidationResult result = await service.ValidateIdNumber(request, ctx.RequestAborted);
+                        return Results.Ok(result);
                     }
                     catch (ArgumentException ex)
                     {

@@ -16,7 +16,7 @@ namespace IDNumberValidator.Svc.Services
             _validatorFactory = validatorFactory;
         }
 
-        public async Task<bool> ValidateIdNumber(IdNumberValidationRequest request, CancellationToken ct)
+        public async Task<IdNumberValidationResult> ValidateIdNumber(IdNumberValidationRequest request, CancellationToken ct)
         {
             ct.ThrowIfCancellationRequested();
 
@@ -35,7 +35,11 @@ namespace IDNumberValidator.Svc.Services
             {
                 case IdType.CreditCard:
                     var validator = _validatorFactory.CreateValidator("CreditCard");
-                    return await Task.FromResult(validator.Validate(sanitizedNumber));
+                    return new IdNumberValidationResult
+                    {
+                        Valid = await Task.FromResult(validator.Validate(sanitizedNumber)),
+                        Type = "Credit Card"
+                    };
 
                 case IdType.SocialSecurity:
                     throw new NotSupportedException("Validation for Social Security Number (Type 2) is under construction.");

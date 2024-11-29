@@ -6,6 +6,6 @@ namespace IDNumberValidator.Svc.IServices
 {
     public interface IIdNumberValidatorService
     {
-        Task<bool> ValidateIdNumber(IdNumberValidationRequest request, CancellationToken ct);
+        Task<IdNumberValidationResult> ValidateIdNumber(IdNumberValidationRequest request, CancellationToken ct);
     }
 }

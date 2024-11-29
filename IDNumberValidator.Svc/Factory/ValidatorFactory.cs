@@ -25,13 +25,13 @@ namespace IDNumberValidator.Svc.Factory
                 throw new InvalidOperationException($"Validator class '{validatorType}' not found.");
             }
 
-            var constructor = type.GetConstructor(new[] { typeof(IAlgorithmFactory) });
+            var constructor = type.GetConstructor([typeof(IAlgorithmFactory)]);
             if (constructor == null)
             {
                 throw new InvalidOperationException($"Constructor for '{validatorType}' with IConfiguration parameter not found.");
             }
 
-            return (IIdNumberValidator)constructor.Invoke(new object[] { _algorithmFactory });
+            return (IIdNumberValidator)constructor.Invoke([_algorithmFactory]);
         }
     }
 }
