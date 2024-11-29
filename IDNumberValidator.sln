@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDNumberValidator.Api", "IDNumberValidator\IDNumberValidator.Api.csproj", "{9E36A86A-1806-4193-8A13-C91301EE5BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDNumberValidator.Svc", "IDNumberValidator.Svc\IDNumberValidator.Svc.csproj", "{88CB440A-8D61-4004-AEB1-E33164B00BDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E36A86A-1806-4193-8A13-C91301EE5BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E36A86A-1806-4193-8A13-C91301EE5BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E36A86A-1806-4193-8A13-C91301EE5BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E36A86A-1806-4193-8A13-C91301EE5BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C324D9AB-352B-4098-94EF-C17766F9E152}
+	EndGlobalSection
+EndGlobal
