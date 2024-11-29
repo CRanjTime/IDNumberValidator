@@ -38,7 +38,7 @@ namespace IDNumberValidator.Svc.Services
                     return new IdNumberValidationResult
                     {
                         Valid = await Task.FromResult(validator.Validate(sanitizedNumber)),
-                        Type = "Credit Card"
+                        Type = IdType.CreditCard.ToString()
                     };
 
                 case IdType.SocialSecurity:

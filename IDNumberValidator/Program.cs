@@ -1,3 +1,4 @@
+using IDNumberValidator.Api;
 using IDNumberValidator.Svc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,10 @@ namespace IDNumberValidator
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.OperationFilter<ValidatorInfoOperationFilter>();
+            });
             builder.Services.AddIdNumberValidator(builder.Configuration);
 
             var app = builder.Build();
