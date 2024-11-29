@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Threading.Tasks;
 
 namespace IDNumberValidator.Svc.Endpoint
 {
@@ -17,31 +18,39 @@ namespace IDNumberValidator.Svc.Endpoint
             {
                 app.MapPost(route, async ([FromBody] IdNumberValidationRequest request, IIdNumberValidatorService service, HttpContext ctx) =>
                 {
-                    try
-                    {
-                        IdNumberValidationResult result = await service.ValidateIdNumber(request, ctx.RequestAborted);
-                        return Results.Ok(result);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        return Results.BadRequest(ex.Message);
-                    }
-                    catch (NotSupportedException ex)
-                    {
-                        return Results.BadRequest(ex.Message);
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        return Results.Problem(statusCode: 500, title: ex.Message, detail: ex.InnerException?.Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        return Results.Problem(statusCode: 500, title: "An unexpected error occurred.", detail: ex.Message);
-                    }
+                    return await ValidateIdNumber(request, service, ctx);
                 }).WithName("ValidateIdNumber");
             }
 
             return builder;
         }
+
+        private static async Task<IResult> ValidateIdNumber(IdNumberValidationRequest request, IIdNumberValidatorService service, HttpContext ctx)
+        {
+            try
+            {
+                IdNumberValidationResult result = await service.ValidateIdNumber(request, ctx.RequestAborted);
+                return Results.Ok(result);
+            }
+            catch (Exception ex) when (HandleException(ex) is IResult result)
+            {
+                return result;
+            }
+        }
+
+        static IResult HandleException(Exception ex) =>
+        ex switch
+        {
+            ArgumentException => Results.BadRequest(new { error = ex.Message }),
+            NotSupportedException => Results.BadRequest(new { error = ex.Message }),
+            InvalidOperationException => Results.Problem(
+                statusCode: 500,
+                title: ex.Message,
+                detail: ex.InnerException?.Message),
+            _ => Results.Problem(
+                statusCode: 500,
+                title: "An unexpected error occurred.",
+                detail: ex.Message)
+        };
     }
 }
