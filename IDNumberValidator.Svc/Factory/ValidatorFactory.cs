@@ -1,10 +1,5 @@
 ﻿using IDNumberValidator.Svc.IServices;
-using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IDNumberValidator.Svc.Factory
 {
@@ -13,7 +8,7 @@ namespace IDNumberValidator.Svc.Factory
         IIdNumberValidator CreateValidator(string validatorType);
     }
 
-    public class ValidatorFactory : IValidatorFactory
+    internal class ValidatorFactory : IValidatorFactory
     {
         private readonly IAlgorithmFactory _algorithmFactory;
 

@@ -2,8 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+	<VersionPrefix>0.1.0</VersionPrefix>
+	<Description>
+		Id Number Validator API
+	</Description>
   </PropertyGroup>
 
   <ItemGroup>

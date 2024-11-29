@@ -1,4 +1,6 @@
 ﻿using IDNumberValidator.Svc.Model;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace IDNumberValidator.Svc.IServices
 {

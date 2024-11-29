@@ -2,15 +2,13 @@
 using IDNumberValidator.Svc.IServices;
 using IDNumberValidator.Svc.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace IDNumberValidator.Svc.Services
 {
-    public class IdNumberValidatiorService : IIdNumberValidatorService
+    internal class IdNumberValidatiorService : IIdNumberValidatorService
     {
         readonly IValidatorFactory _validatorFactory;
         public IdNumberValidatiorService(IValidatorFactory validatorFactory)

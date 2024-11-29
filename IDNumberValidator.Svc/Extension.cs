@@ -2,7 +2,6 @@
 using IDNumberValidator.Svc.Factory;
 using IDNumberValidator.Svc.IServices;
 using IDNumberValidator.Svc.Services;
-using IDNumberValidator.Svc.Services.Algorithm;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

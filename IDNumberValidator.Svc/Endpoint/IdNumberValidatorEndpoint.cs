@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace IDNumberValidator.Svc.Endpoint
 {
@@ -19,7 +20,7 @@ namespace IDNumberValidator.Svc.Endpoint
                     try
                     {
                         bool result = await service.ValidateIdNumber(request, ctx.RequestAborted);
-                        return Results.Ok(new { result });
+                        return Results.Ok(new { valid = result });
                     }
                     catch (ArgumentException ex)
                     {
