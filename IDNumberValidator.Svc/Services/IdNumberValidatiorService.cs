@@ -16,6 +16,16 @@ namespace IDNumberValidator.Svc.Services
             _validatorFactory = validatorFactory;
         }
 
+        /// <summary>
+        /// Validate Id Number based on type. Validator is different per type. 
+        /// Currently supports: Credit Card
+        /// </summary>
+        /// <param name="request"><c>IdNumberValidationRequest</c> containing the Id Number and Type to validate</param>
+        /// <param name="ct">Cancellation token from the HTTPContext</param>
+        /// <returns>A <c>IdNumberValidationResult</c> containing the result.</returns>
+        /// <exception cref="ArgumentException">IdNumber is not provided or Contains letters and symbols.</exception>
+        /// <exception cref="NotSupportedException">Type provided is not yet supported</exception>
+        /// <exception cref="InvalidOperationException">Type provided is invalid</exception>
         public async Task<IdNumberValidationResult> ValidateIdNumber(IdNumberValidationRequest request, CancellationToken ct)
         {
             ct.ThrowIfCancellationRequested();

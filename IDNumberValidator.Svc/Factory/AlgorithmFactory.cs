@@ -18,6 +18,13 @@ namespace IDNumberValidator.Svc.Factory
             _config = config;
         }
 
+
+        /// <summary>
+        /// Dynamically create instance of the algorithm class based on the type that was provided.
+        /// </summary>
+        /// <param name="validatorType">Type of validator that will be used to find the algorithm.</param>
+        /// <returns>returns an instance of a class of type <c>IAlgorithm</c>.</returns>
+        /// <exception cref="InvalidOperationException">If the algorithm is not found and if the constructor invoked does not exists</exception>
         public IAlgorithm CreateAlgorithm(string validatorType)
         {
             string className = _config.GetValue<string>($"Validators:{validatorType}");

@@ -17,6 +17,12 @@ namespace IDNumberValidator.Svc.Factory
             _algorithmFactory = algorithmFactory;
         }
 
+        /// <summary>
+        /// Dynamically create instance of the validator class based on the type that was provided.
+        /// </summary>
+        /// <param name="validatorType">Type of validator that will be invoked</param>
+        /// <returns>returns an instance of a class of type <c>IIdNumberValidator</c>.</returns>
+        /// <exception cref="InvalidOperationException">If the validator is not found and if the constructor invoked does not exists</exception>
         public IIdNumberValidator CreateValidator(string validatorType)
         {
             var type = Type.GetType($"IDNumberValidator.Svc.Services.Validator.{validatorType}Validator");

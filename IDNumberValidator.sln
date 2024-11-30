@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDNumberValidator.Api", "ID
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDNumberValidator.Svc", "IDNumberValidator.Svc\IDNumberValidator.Svc.csproj", "{88CB440A-8D61-4004-AEB1-E33164B00BDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDNumberValidator.Svc.UnitTests", "IDNumberValidator.Svc.UnitTests\IDNumberValidator.Svc.UnitTests.csproj", "{CF5CC94D-714A-4861-8C36-BCDE1516D5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88CB440A-8D61-4004-AEB1-E33164B00BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5CC94D-714A-4861-8C36-BCDE1516D5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5CC94D-714A-4861-8C36-BCDE1516D5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5CC94D-714A-4861-8C36-BCDE1516D5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5CC94D-714A-4861-8C36-BCDE1516D5CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
